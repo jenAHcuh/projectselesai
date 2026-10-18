@@ -1,0 +1,758 @@
+/* ========================================
+   HOME HERO
+======================================== */
+/* HERO TEXT ANIMATION */
+.hero-content .eyebrow,
+.hero-content h1,
+.hero-content p,
+.hero-content .shop-button {
+    opacity: 0;
+    animation: heroFadeDown 0.8s ease-out forwards;
+}
+
+/* Urutan animasi */
+.hero-content .eyebrow {
+    animation-delay: 0.15s;
+}
+
+.hero-content h1 {
+    animation-delay: 0.3s;
+}
+
+.hero-content p {
+    animation-delay: 0.45s;
+}
+
+.hero-content .shop-button {
+    animation-delay: 0.6s;
+}
+
+/* Fade in sambil turun */
+@keyframes heroFadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.home-slider,
+.home-slider * {
+    box-sizing: border-box;
+}
+
+.home-slider {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--brand-cream);
+    color: var(--brand-text);
+}
+
+.hero-slide {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 700px;
+    min-height: 500px;
+
+    background-color: var(--brand-cream);
+    background-image: url("/images/hero-1.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.hero-content {
+    position: absolute;
+    z-index: 2;
+
+    top: 50%;
+    left: max(calc((100% - 1120px) / 2), 8%);
+
+    width: 360px;
+    margin: 0;
+    padding: 30px 0;
+
+    transform: translateY(-50%);
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 6px;
+
+    color: #e53637;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero-content h1 {
+    margin: 0 0 16px;
+
+    color: var(--brand-text);
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(34px, 3.2vw, 48px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+
+.hero-content p {
+    max-width: 360px;
+    margin: 0 0 28px;
+
+    color: #66615d;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.shop-button {
+    min-height: 54px;
+    min-width: 200px;
+    padding: 0 28px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+
+    border: 1px solid #000;
+    box-sizing: border-box;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        gap 0.3s ease;
+}
+
+.shop-button:hover {
+    background: #fff;
+    color: #000;
+}
+
+.shop-button span {
+    display: inline-block;
+    font-size: 19px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.shop-button:hover span {
+    transform: translateX(10px);
+}
+
+/* SATU CONTAINER UNTUK TIMER DAN PRODUK */
+.sale-countdown {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 50px 0;
+    background: #fafaf8;
+}
+
+.countdown-banner {
+    width: 100%;
+    min-height: 76px;
+    padding: 23px 8%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+}
+
+/* INFORMASI DI KIRI */
+.countdown-info {
+    position: relative;
+    text-align: left;
+    margin: 0;
+    padding-right: 35px;
+}
+.countdown-info::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1px;
+    height: 42px;
+    background: #d8d8d3;
+    transform: translateY(-50%);
+}
+
+.countdown-info h3 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #171717;
+}
+
+.countdown-info p {
+    margin: 0;
+    font-size: 15px;
+    color: #171717;
+}
+
+/* TIMER DI KANAN */
+.countdown-banner .countdown-timer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.countdown-banner .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 34px;
+}
+
+.countdown-banner .countdown-item strong {
+    color: #171717;
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+.countdown-banner .countdown-item span {
+    color: #171717;
+    font-size: 12px;
+}
+
+.countdown-banner .countdown-colon {
+    color: #171717;
+    font-size: 21px;
+    line-height: 1.2;
+}
+
+/* KONDISI AWAL: SEBELUM DI-SCROLL */
+/* KONDISI AWAL: SEBELUM DI-SCROLL */
+.countdown-info h3,
+.countdown-info p,
+.countdown-banner .countdown-timer {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* SAAT COUNTDOWN TERLIHAT */
+.countdown-banner.show-on-scroll .countdown-info h3,
+.countdown-banner.show-on-scroll .countdown-info p,
+.countdown-banner.show-on-scroll .countdown-timer {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.countdown-banner.show-on-scroll .countdown-info p {
+    transition-delay: 0.15s;
+}
+
+.countdown-banner.show-on-scroll .countdown-timer {
+    transition-delay: 0.3s;
+}
+
+@keyframes countdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* JARAK ANTARA TIMER DAN PRODUK */
+.flash-sale-products {
+    width: 100%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 24px;
+
+    border-radius: 10px;
+    background: #f5f5fa;
+}
+
+.flash-sale-products h2 {
+    margin: 0 0 20px;
+    color: #171717;
+    font-size: 20px;
+}
+
+/* GRID PRODUK */
+.flash-sale-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+.flash-product-card {
+    min-width: 0;
+    max-width: 230px;
+}
+
+.flash-product-link {
+    display: block;
+    color: #171717;
+    text-decoration: none;
+}
+
+.flash-product-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 12px;
+    overflow: hidden;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.flash-product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.flash-product-name {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.flash-product-price {
+    font-weight: bold;
+    color: #171717;
+}
+
+.flash-product-original {
+    margin-left: 6px;
+    color: #888;
+    font-size: 12px;
+    text-decoration: line-through;
+}
+
+/* FLASH SALE HEADER */
+.flash-sale-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.flash-sale-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.flash-sale-heading p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.flash-sale-heading h2 {
+    margin: 0;
+    color: #333;
+    font-size: 26px;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.view-all-clothes {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+    color: #262626;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.view-all-clothes:hover {
+    color: #262626;
+}
+
+.view-all-clothes span {
+    font-size: 20px;
+    color: #e53637;
+}
+
+/* INSTAGRAM SECTION */
+.instagram-section {
+    width: 100%;
+    padding: 100px 5%;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.instagram-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(260px, 0.9fr);
+    align-items: center;
+    gap: 35px;
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+/* GALLERY: 6 FOTO */
+.instagram-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.instagram-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #f2f2f2;
+}
+
+.instagram-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TEXT */
+.instagram-text {
+    padding: 15px 0;
+}
+
+.instagram-text h2 {
+    margin: 0 0 24px;
+    color: #111;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.instagram-text p {
+    margin: 0 0 36px;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.instagram-text h3 {
+    margin: 0;
+    color: #e74c50;
+    font-size: 27px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+/* Saat section terlihat */
+.instagram-container.show-on-scroll {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi foto satu per satu */
+.instagram-gallery .instagram-photo {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.instagram-container.show-on-scroll .instagram-photo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.instagram-container.show-on-scroll .instagram-photo:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.instagram-container.show-on-scroll .instagram-photo:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.instagram-container.show-on-scroll .instagram-photo:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.instagram-container.show-on-scroll .instagram-photo:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.instagram-container.show-on-scroll .instagram-photo:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+.instagram-container.show-on-scroll .instagram-photo:nth-child(6) {
+    transition-delay: 0.6s;
+}
+
+/* Jika pengunjung memilih mengurangi animasi */
+@media (prefers-reduced-motion: reduce) {
+    .instagram-container,
+    .instagram-gallery .instagram-photo {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* HARGA DAN DISKON PRODUK */
+.flash-product-prices {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* HARGA SETELAH DISKON */
+.flash-product-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #171717;
+}
+
+/* HARGA ASLI YANG DICORET */
+.flash-product-original {
+    margin-left: 2px;
+    color: #999;
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+/* LABEL SAVE DISCOUNT */
+.discount {
+    display: inline-block;
+    margin-left: 2px;
+    color: #ff4545;
+    font-size: 13px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+/* TOMBOL DI POJOK KANAN ATAS GAMBAR */
+/* POSISI TOMBOL */
+.flash-product-image .product-actions {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(15px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s ease;
+}
+
+/* MUNCUL DARI KANAN KE KIRI */
+.flash-product-image:hover .product-actions,
+.flash-product-image:focus-within .product-actions {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* TOMBOL SEARCH */
+.flash-product-image .action-btn {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+    border: none;
+    border-radius: 0;
+
+    color: #222;
+    text-decoration: none;
+    font-size: 22px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.flash-product-image .action-btn:hover {
+    background: #f0f0f0;
+
+    transform: scale(1.05);
+}
+
+/* BOTTOM COLLECTION BANNER */
+.bottom-collection-banner {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    background-image: url("/images/bg.jpg");
+    background-size: cover;
+    background-position: center 55%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* DARK OVERLAY */
+.bottom-collection-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, 0.48);
+}
+
+/* CENTER CONTENT */
+.bottom-collection-content {
+    max-width: 700px;
+    text-align: center;
+    color: #fff;
+}
+
+.bottom-collection-eyebrow {
+    display: block;
+    margin-bottom: 14px;
+    color: #f5d6c8;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.bottom-collection-content h2 {
+    margin: 0 0 16px;
+    color: #fff;
+    font-size: 38px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.bottom-collection-content p {
+    margin: 0 0 28px;
+    color: #f1f1f1;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* BUTTON */
+.bottom-collection-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    min-height: 50px;
+    padding: 0 28px;
+    box-sizing: border-box;
+
+    background: #fff;
+    color: #171717;
+    border: 1px solid #fff;
+
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.bottom-collection-button span {
+    display: inline-block;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.bottom-collection-button:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.bottom-collection-button:hover span {
+    transform: translateX(6px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .bottom-collection-banner {
+        min-height: 300px;
+    }
+
+    .bottom-collection-content h2 {
+        font-size: 29px;
+    }
+
+    .bottom-collection-content p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bottom-collection-banner {
+        min-height: 280px;
+    }
+
+    .bottom-collection-content h2 {
+        font-size: 24px;
+    }
+
+    .bottom-collection-eyebrow {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+}
