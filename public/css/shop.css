@@ -1,0 +1,875 @@
+/* =========================================================
+   SHOP CONTAINER
+========================================================= */
+
+.shop-container {
+    display: grid;
+    grid-template-columns: 235px 1fr;
+    gap: 45px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 30px;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.shop-sidebar {
+    width: 100%;
+}
+
+.filter-section {
+    margin-bottom: 35px;
+}
+
+.filter-section h3 {
+    margin-bottom: 18px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    color: #222;
+}
+
+/* =========================================================
+   FILTER LIST
+========================================================= */
+
+.filter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filter-list a {
+    display: block;
+
+    font-size: 14px;
+    color: #999;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.filter-list a:hover {
+    color: #111;
+}
+
+.filter-list a.active-filter {
+    color: #111;
+    font-weight: 600;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-form {
+    position: relative;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 40px 0 12px;
+
+    border: 1px solid #ddd;
+    outline: none;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+.search-input:focus {
+    border-color: #999;
+}
+
+.search-button {
+    position: absolute;
+
+    top: 50%;
+    right: 10px;
+
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+/* =========================================================
+   PRICE RANGE
+========================================================= */
+
+.price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.price-inputs input {
+    width: 90px;
+    height: 38px;
+
+    padding: 8px;
+
+    border: 1px solid #ddd;
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+.price-inputs input:focus {
+    border-color: #999;
+}
+
+/* =========================================================
+   CLEAR FILTER
+========================================================= */
+
+.clear-filter {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    color: #e22;
+
+    font-size: 15px;
+
+    text-decoration: none;
+}
+
+.clear-filter:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   PRODUCT AREA
+========================================================= */
+
+.product-area {
+    min-width: 0;
+}
+
+/* =========================================================
+   PRODUCT TOOLBAR
+========================================================= */
+
+.product-toolbar {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 35px;
+
+    font-size: 14px;
+    color: #222;
+}
+
+.sort-form {
+    margin: 0;
+}
+
+.sort-select {
+    border: none;
+
+    background: white;
+
+    font-size: 14px;
+
+    cursor: pointer;
+    outline: none;
+}
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    column-gap: 30px;
+    row-gap: 45px;
+}
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card {
+    position: relative;
+    min-width: 0;
+}
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.product-image {
+    position: relative;
+
+    overflow: hidden;
+
+    background: #f3f3f7;
+}
+
+.product-image img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* Skeleton */
+.product-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+
+    background: linear-gradient(90deg, #eeeeee 25%, #f7f7f7 50%, #eeeeee 75%);
+
+    background-size: 200% 100%;
+
+    animation: shimmer 1.2s infinite;
+}
+
+/* Gambar disembunyikan sementara */
+.product-image img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Setelah loading selesai */
+.product-image.loaded::before {
+    display: none;
+}
+
+.product-image.loaded img {
+    opacity: 1;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* =========================================================
+   DARK PATTERN - FAKE SCARCITY
+========================================================= */
+
+.urgency-badge {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    z-index: 5;
+
+    padding: 8px 15px;
+
+    background: #f36f4f;
+
+    color: white;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    pointer-events: none;
+}
+
+/* =========================================================
+   DARK PATTERN - SOLD PROGRESS
+========================================================= */
+
+.scarcity-info {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 7px;
+
+    font-size: 14px;
+
+    color: #666;
+}
+
+.sold-progress {
+    width: 100%;
+    height: 7px;
+
+    background: #ddd;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-bottom: 18px;
+}
+
+.sold-progress-fill {
+    width: 0;
+    height: 100%;
+    background: #111;
+    border-radius: 10px;
+    animation: fillProgress 0.5s ease-out forwards;
+}
+
+/* Urgency warning */
+.scarcity-info.urgency-warning {
+    color: #e67e22;
+}
+
+.sold-progress-fill.urgency-warning {
+    background: #e67e22;
+}
+
+/* Urgency critical */
+.scarcity-info.urgency-critical {
+    color: #e53935;
+    font-weight: 600;
+}
+
+.sold-progress-fill.urgency-critical {
+    background: #e53935;
+}
+
+@keyframes fillProgress {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: var(--progress);
+    }
+}
+
+/* =========================================================
+   HOVER ACTIONS
+========================================================= */
+
+.product-actions {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    z-index: 10;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateX(15px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0.5s ease;
+}
+
+/* Show actions when hovering product */
+
+.product-card:hover .product-actions {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateX(0);
+}
+
+/* =========================================================
+   ACTION BUTTON
+========================================================= */
+
+.product-actions form {
+    margin: 0;
+    padding: 0;
+}
+
+.action-btn {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: white;
+
+    border: none;
+
+    color: #333;
+
+    text-decoration: none;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.action-btn:hover {
+    background: #f0f0f0;
+
+    transform: scale(1.05);
+}
+
+/* =========================
+   PRODUCT NAME
+========================= */
+
+.product-name {
+    margin-top: 16px;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    line-height: 1.4;
+
+    color: #222;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* =========================================================
+   RATING
+========================================================= */
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 12px;
+    margin-top: 5px;
+}
+
+.rating-stars {
+    display: inline-flex;
+    align-items: center;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.filled-stars {
+    color: #f6df35;
+}
+
+.empty-star {
+    color: #ccc;
+}
+
+.review-count {
+    color: #666;
+    font-size: 13px;
+    font-weight: 400;
+}
+/* =========================================================
+   PRICE
+========================================================= */
+
+.product-price {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    margin-top: 2px;
+}
+
+.current-price {
+    font-size: 20px;
+
+    font-weight: 600;
+
+    color: #111;
+}
+
+.original-price {
+    color: #999;
+
+    text-decoration: line-through;
+
+    font-size: 14px;
+}
+
+.discount {
+    color: #e22;
+
+    font-size: 13px;
+}
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination-wrapper {
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 50px;
+}
+
+/* =========================
+   FILTER DROPDOWN
+========================= */
+
+.filter-dropdown {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 22px;
+    margin-bottom: 25px;
+}
+
+.filter-dropdown summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    list-style: none;
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
+
+    text-transform: uppercase;
+}
+
+/* Hilangkan segitiga bawaan */
+.filter-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.filter-dropdown summary::marker {
+    display: none;
+    content: "";
+}
+
+.dropdown-arrow {
+    font-size: 24px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+/* =========================
+   FILTER CONTENT ANIMATION
+========================= */
+
+/* FILTER CONTENT ANIMATION */
+
+.filter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding-top: 0;
+    box-sizing: border-box;
+
+    transition:
+        height 0.3s ease,
+        opacity 0.3s ease,
+        padding-top 0.3s ease;
+}
+
+.filter-dropdown[open] .filter-content {
+    opacity: 1;
+}
+
+.filter-content a {
+    display: flex;
+    justify-content: space-between;
+
+    color: #aaa;
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: color 0.2s ease;
+}
+
+.filter-content a:hover,
+.filter-content a.active-filter {
+    color: #111;
+}
+
+.filter-count {
+    margin-left: 5px;
+}
+
+/* =========================================================
+   SORT DROPDOWN
+========================================================= */
+
+.sort-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* =========================
+   SORT TRIGGER
+========================= */
+
+.sort-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 0;
+
+    color: #222;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.sort-trigger strong {
+    font-weight: 600;
+}
+
+/* =========================
+   ARROW
+========================= */
+
+.sort-arrow {
+    font-size: 16px;
+
+    transition: transform 0.3s ease;
+}
+
+/* =========================
+   DROPDOWN CONTENT
+========================= */
+
+.sort-content {
+    position: absolute;
+
+    top: 100%;
+    right: 0;
+
+    min-width: 160px;
+
+    background: white;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    opacity: 0;
+
+    transform: translateY(-10px);
+
+    transition: all 0.3s ease;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    border-radius: 0.5rem;
+
+    overflow: hidden;
+}
+
+/* =========================
+   SHOW DROPDOWN ON HOVER
+========================= */
+
+.sort-dropdown:hover .sort-content {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+/* =========================
+   ARROW ANIMATION
+========================= */
+
+.sort-dropdown:hover .arrow {
+    transform: rotate(45deg);
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 2.7px;
+    transform: rotate(225deg);
+    transition: transform 0.3s ease;
+}
+/* =========================
+   DROPDOWN OPTIONS
+========================= */
+
+.sort-content a {
+    color: #374151;
+
+    padding: 0.7rem 1rem;
+
+    text-decoration: none;
+
+    display: block;
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.sort-content a:hover {
+    background: #f3f4f6;
+
+    color: #111;
+}
+
+/* =========================
+   ACTIVE SORT
+========================= */
+
+.sort-content a.active-sort {
+    background: #f3f4f6;
+
+    color: #111;
+
+    font-weight: 600;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+    .shop-container {
+        grid-template-columns: 200px 1fr;
+
+        gap: 25px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        column-gap: 20px;
+    }
+}
+/* CUSTOM PAGINATION */
+.pagination-wrapper {
+    padding-top: 25px;
+    margin: 35px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+/* NOMOR HALAMAN */
+.pagination-wrapper .page-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+
+    border: 1px solid transparent;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #111;
+
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: border-color 0.2s ease;
+}
+
+/* HALAMAN AKTIF */
+.pagination-wrapper .page-link.active {
+    border-color: #111;
+    background: transparent;
+    color: #111;
+}
+
+/* HOVER */
+.pagination-wrapper .page-link:hover:not(.disabled) {
+    border-color: #111;
+    color: #111;
+}
+
+/* DISABLED */
+.pagination-wrapper .page-link.disabled {
+    border-color: transparent;
+    background: transparent;
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+/* TITIK-TITIK (...) */
+.pagination-wrapper span {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 15px;
+    color: #111;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .pagination-wrapper {
+        gap: 2px;
+    }
+
+    .pagination-wrapper .page-link {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+}
